@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		38005F282424F9800074C863 /* CodableDict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38005F1E2424F9800074C863 /* CodableDict.framework */; };
 		38005F2D2424F9800074C863 /* CodableDictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38005F2C2424F9800074C863 /* CodableDictTests.swift */; };
 		38005F2F2424F9800074C863 /* CodableDict.h in Headers */ = {isa = PBXBuildFile; fileRef = 38005F212424F9800074C863 /* CodableDict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38005F3A2424FA730074C863 /* DictionaryCoding in Frameworks */ = {isa = PBXBuildFile; productRef = 38005F392424FA730074C863 /* DictionaryCoding */; };
+		38005F3C2424FB0A0074C863 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38005F3B2424FB0A0074C863 /* Main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 		38005F272424F9800074C863 /* CodableDictTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodableDictTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38005F2C2424F9800074C863 /* CodableDictTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableDictTests.swift; sourceTree = "<group>"; };
 		38005F2E2424F9800074C863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38005F3B2424FB0A0074C863 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38005F3A2424FA730074C863 /* DictionaryCoding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				38005F212424F9800074C863 /* CodableDict.h */,
+				38005F3B2424FB0A0074C863 /* Main.swift */,
 				38005F222424F9800074C863 /* Info.plist */,
 			);
 			path = CodableDict;
@@ -112,8 +117,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				38005F402424FD950074C863 /* PBXTargetDependency */,
 			);
 			name = CodableDict;
+			packageProductDependencies = (
+				38005F392424FA730074C863 /* DictionaryCoding */,
+			);
 			productName = CodableDict;
 			productReference = 38005F1E2424F9800074C863 /* CodableDict.framework */;
 			productType = "com.apple.product-type.framework";
@@ -148,6 +157,7 @@
 				TargetAttributes = {
 					38005F1D2424F9800074C863 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 					38005F262424F9800074C863 = {
 						CreatedOnToolsVersion = 11.4;
@@ -163,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 38005F142424F9800074C863;
+			packageReferences = (
+				38005F382424FA730074C863 /* XCRemoteSwiftPackageReference "DictionaryCoding" */,
+			);
 			productRefGroup = 38005F1F2424F9800074C863 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38005F3C2424FB0A0074C863 /* Main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +227,10 @@
 			isa = PBXTargetDependency;
 			target = 38005F1D2424F9800074C863 /* CodableDict */;
 			targetProxy = 38005F292424F9800074C863 /* PBXContainerItemProxy */;
+		};
+		38005F402424FD950074C863 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 38005F3F2424FD950074C863 /* DictionaryCoding */;
 		};
 /* End PBXTargetDependency section */
 
@@ -340,6 +358,7 @@
 		38005F332424F9800074C863 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 35HM669KA6;
@@ -356,6 +375,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.stewartstuff.CodableDict;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,6 +384,7 @@
 		38005F342424F9800074C863 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 35HM669KA6;
@@ -388,6 +409,7 @@
 		38005F362424F9800074C863 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35HM669KA6;
 				INFOPLIST_FILE = CodableDictTests/Info.plist;
@@ -406,6 +428,7 @@
 		38005F372424F9800074C863 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35HM669KA6;
 				INFOPLIST_FILE = CodableDictTests/Info.plist;
@@ -452,6 +475,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38005F382424FA730074C863 /* XCRemoteSwiftPackageReference "DictionaryCoding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elegantchaos/DictionaryCoding";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38005F392424FA730074C863 /* DictionaryCoding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38005F382424FA730074C863 /* XCRemoteSwiftPackageReference "DictionaryCoding" */;
+			productName = DictionaryCoding;
+		};
+		38005F3F2424FD950074C863 /* DictionaryCoding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38005F382424FA730074C863 /* XCRemoteSwiftPackageReference "DictionaryCoding" */;
+			productName = DictionaryCoding;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 38005F152424F9800074C863 /* Project object */;
 }

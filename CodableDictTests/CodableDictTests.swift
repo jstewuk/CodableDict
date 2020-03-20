@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import CodableDict
+@testable import DictionaryCoding
 
 class CodableDictTests: XCTestCase {
 
@@ -19,9 +20,26 @@ class CodableDictTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEncoding() throws {
+        struct Pet : Codable {
+          let name : String
+        }
+
+        struct Person : Codable {
+          let name : String
+          let age : Int
+          let pets : [Pet]
+        }
+
+        // to encode...
+        let test = Person(name: "Sam", age: 48, pets:[Pet(name: "Morven"), Pet(name: "Rebus")])
+        let encoder = DictionaryCoding.DictionaryEncoder()
+        let encoded = try encoder.encode(test) as [String:Any]
+        XCTAssertEqual(encoded["name"] as? String, "Sam")
+        XCTAssertEqual(encoded["age"] as? Int, 48)
+        let pets = encoded["pets"] as! [NSDictionary]
+        XCTAssertEqual(pets[0]["name"] as? String, "Morven")
+        XCTAssertEqual(pets[1]["name"] as? String, "Rebus")
     }
 
     func testPerformanceExample() throws {
